@@ -79,3 +79,13 @@ function insanehack() {
 function setnum(num) {
   number = num;
 }
+
+function scoreReset() {
+  score = 0;
+  scoreDisplay.innerHTML = score;
+}
+
+function AllTimeScoreReset() {
+  allTimeCounter = 0;
+  allTimeCounterDisplay.innerHTML = allTimeCounter;
+}
