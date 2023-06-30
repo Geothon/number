@@ -10,6 +10,10 @@ function start() {
   mainScreen.style.display = "block";
 }
 
+window.onbeforeunload = function(){
+  localStorage.getItem("alltimecounter", allTimeCounter);
+};
+
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max) + 1;
 }
