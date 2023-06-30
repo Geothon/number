@@ -3,16 +3,12 @@ mainScreen.style.display = "none";
 let instructions = document.getElementById("instructions");
 let allTimeCounterDisplay = document.getElementById("allTimeCounterDisplay");
 let allTimeCounter = localStorage.getItem("alltimecounter");
-allTimeCounterDisplay.innerHTML = allTimeCounter;
 
 function start() {
   instructions.style.display = "none"
   mainScreen.style.display = "block";
+  allTimeCounterDisplay.innerHTML = allTimeCounter;
 }
-
-window.onbeforeunload = function(){
-  localStorage.setItem("alltimecounter", allTimeCounter);
-};
 
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max) + 1;
@@ -36,8 +32,9 @@ function submit() {
       textbox.value = "";
       score = score + 1;
       scoreDisplay.innerHTML = score;
-      allTimeCounter = allTimeCounter + score;
+      allTimeCounter = allTimeCounter + 1;
       allTimeCounterDisplay.innerHTML = allTimeCounter;
+      localStorage.setItem("alltimecounter", allTimeCounter);
       number = generateRandomInteger(100);
     } else if (textbox.value > number) {
       textbox.value = "";
