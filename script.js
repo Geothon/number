@@ -11,7 +11,7 @@ function start() {
 }
 
 window.onbeforeunload = function(){
-  localStorage.getItem("alltimecounter", allTimeCounter);
+  localStorage.setItem("alltimecounter", allTimeCounter);
 };
 
 function generateRandomInteger(max) {
