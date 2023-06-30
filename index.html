@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Guess The Number Three</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="container">
+    <h1 id="score">0</h1>
+    <h1 id="title">Guess The Number!</h1>
+    <div id="textbox-container">
+      <input type="text" id="textbox" name="textbox" placeholder="" spellcheck="false" size="1">
+    </div>
+    <div id="submitBtnContainer">
+    <button id="submit" onclick="submit()">Submit</button>
+    </div>
+    <h2 id="correct"></h2>
+  </div>
+
+  <div id="instructions">
+    <label id="label">Type the number you want to guess between 1 and 100 in to the textbox and then press enter or the submit button. Then the game will tell you if the correct number is bigger, smaller, or the number you guessed was correct.</label>
+    <button onclick="start()">Ok</button>
+  </div>
+  <script src="script.js"></script>
+
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>
