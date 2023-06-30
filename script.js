@@ -1,6 +1,9 @@
 let mainScreen = document.getElementById("container")
 mainScreen.style.display = "none";
 let instructions = document.getElementById("instructions");
+let allTimeCounterDisplay = document.getElementById("allTimeCounterDisplay");
+let allTimeCounter = localStorage.getItem("alltimecounter");
+allTimeCounterDisplay.innerHTML = allTimeCounter;
 
 function start() {
   instructions.style.display = "none"
@@ -19,19 +22,7 @@ let score = 0;
 
 document.addEventListener("keyup", function(event) {
   if (event.code === 'Enter') {
-    if (textbox.value == number) {
-      correct.innerHTML = "You were correct!";
-      textbox.value = "";
-      score = score + 1;
-      scoreDisplay.innerHTML = score;
-      number = generateRandomInteger(100);
-    } else if (textbox.value > number) {
-      textbox.value = "";
-      correct.innerHTML = "The number is smaller";
-    } else if (textbox.value < number) {
-      textbox.value = "";
-      correct.innerHTML = "The number is bigger";
-    }
+    submit();
   }
 });
 
@@ -41,6 +32,8 @@ function submit() {
       textbox.value = "";
       score = score + 1;
       scoreDisplay.innerHTML = score;
+      allTimeCounter = allTimeCounter + score;
+      allTimeCounterDisplay.innerHTML = allTimeCounter;
       number = generateRandomInteger(100);
     } else if (textbox.value > number) {
       textbox.value = "";
