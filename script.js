@@ -32,7 +32,7 @@ function submit() {
       textbox.value = "";
       score = score + 1;
       scoreDisplay.innerHTML = score;
-      allTimeCounter = allTimeCounter + 1;
+      allTimeCounter = +allTimeCounter + 1;
       allTimeCounterDisplay.innerHTML = allTimeCounter;
       localStorage.setItem("alltimecounter", allTimeCounter);
       number = generateRandomInteger(100);
