@@ -4,6 +4,9 @@ let instructions = document.getElementById("instructions");
 let allTimeCounterDisplay = document.getElementById("allTimeCounterDisplay");
 let allTimeCounter = localStorage.getItem("alltimecounter");
 
+let darkmodeColor = rgb(48, 46, 46);
+let lightmodeColor = rgb(255, 255, 255);
+
 function start() {
   instructions.style.display = "none"
   mainScreen.style.display = "block";
@@ -20,29 +23,29 @@ let scoreDisplay = document.getElementById("score");
 let number = generateRandomInteger(100);
 let score = 0;
 
-document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function (event) {
   if (event.code === 'Enter') {
     submit();
   }
 });
 
 function submit() {
- if (textbox.value == number) {
-      correct.innerHTML = "You were correct!";
-      textbox.value = "";
-      score = score + 1;
-      scoreDisplay.innerHTML = score;
-      allTimeCounter = +allTimeCounter + 1;
-      allTimeCounterDisplay.innerHTML = allTimeCounter;
-      localStorage.setItem("alltimecounter", allTimeCounter);
-      number = generateRandomInteger(100);
-    } else if (textbox.value > number) {
-      textbox.value = "";
-      correct.innerHTML = "The number is smaller";
-    } else if (textbox.value < number) {
-      textbox.value = "";
-      correct.innerHTML = "The number is bigger";
-    }
+  if (textbox.value == number) {
+    correct.innerHTML = "You were correct!";
+    textbox.value = "";
+    score = score + 1;
+    scoreDisplay.innerHTML = "Score: " + score;
+    allTimeCounter = +allTimeCounter + 1;
+    allTimeCounterDisplay.innerHTML = "All Time Score: " + allTimeCounter;
+    localStorage.setItem("alltimecounter", allTimeCounter);
+    number = generateRandomInteger(100);
+  } else if (textbox.value > number) {
+    textbox.value = "";
+    correct.innerHTML = "The number is smaller";
+  } else if (textbox.value < number) {
+    textbox.value = "";
+    correct.innerHTML = "The number is bigger";
+  }
 }
 
 function cheatsOn() {
