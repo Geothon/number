@@ -7,11 +7,22 @@ let allTimeCounter = localStorage.getItem("alltimecounter");
 //let darkmodeColor = rgb(48, 46, 46);
 //let lightmodeColor = rgb(255, 255, 255);
 
+function startcheck() {
+  let localStorageCheck = localStorage.getItem("showinstructions");
+  if (localStorageCheck === "false") {
+    instructions.style.display = "none"
+  }
+  else {
+    return;
+  }
+}
+
 function start() {
   instructions.style.display = "none"
   mainScreen.style.display = "block";
+  localStorage.setItem("showinstructions", "false");
   allTimeCounterDisplay.innerHTML = allTimeCounter;
-};
+}
 
 function generateRandomInteger(max) {
   return Math.floor(Math.random() * max) + 1;
@@ -34,9 +45,9 @@ function submit() {
     correct.innerHTML = "You were correct!";
     textbox.value = "";
     score = score + 1;
-    scoreDisplay.innerHTML = "Score: " + score;
+    scoreDisplay.innerHTML = "Session Score: " + score;
     allTimeCounter = +allTimeCounter + 1;
-    allTimeCounterDisplay.innerHTML = "All Time Score: " + allTimeCounter;
+    allTimeCounterDisplay.innerHTML = String(allTimeCounter);
     localStorage.setItem("alltimecounter", allTimeCounter);
     number = generateRandomInteger(100);
   } else if (textbox.value > number) {
@@ -47,6 +58,8 @@ function submit() {
     correct.innerHTML = "The number is bigger";
   }
 };
+
+// Console Cheats
 
 function cheatsOn() {
   cheatInterval = setInterval(tellnum, 2000);

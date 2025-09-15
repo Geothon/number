@@ -8,9 +8,10 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body onload()="startcheck()">
   <div id="container">
-    <h1 id="score">0</h1>
+    <h3 class="centerme"> All Time Score: </h3>
+    <h1 id="allTimeCounterDisplay"></h1>
     <h1 id="title">Guess The Number!</h1>
     <div id="textbox-container">
       <input type="text" id="textbox" name="textbox" placeholder="" spellcheck="false" size="1">
@@ -19,11 +20,11 @@
     <button id="submit" onclick="submit()">Submit</button>
     </div>
     <h2 id="correct"></h2>
-    <h3 id="allTimeCounterDisplay"></h3>
+    <h3 id="score"> Session Score: 0</h3>
   </div>
 
   <div id="instructions">
-    <label id="label">Type the number you want to guess between 1 and 100 in to the textbox and then press enter or the submit button. Then the game will tell you if the correct number is bigger, smaller, or the number you guessed was correct.</label>
+    <label id="start-label">Type the number you want to guess between 1 and 100 in to the textbox and then press enter or the submit button. Then the game will tell you if the correct number is bigger, smaller, or the number you guessed was correct. WARNING - Clearing cookies may delete score or other saved items</label>
     <button onclick="start()">Ok</button>
   </div>
   <script src="script.js"></script>

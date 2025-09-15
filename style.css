@@ -3,6 +3,11 @@ html, body {
   width: 100%;
 }
 
+.centerme {
+  display: flex;
+  justify-content: center;
+}
+
 #title {
   display: flex;
   justify-content: center;
@@ -18,7 +23,12 @@ html, body {
   justify-content: center;  
 }
 
-#label {
+#instructions {
+  display: flex;
+  justify-content: center;
+}
+
+#start-label {
   display: flex;
   justify-content: center;
 }
