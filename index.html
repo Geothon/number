@@ -8,10 +8,28 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body onload()="startcheck()">
+<body onload="startcheck()">
+  <div class = "sidebar" id="shop" style="display:none">
+    <h3>Shop</h3>
+    <button class="sidebarbutton" onclick="darkmode()">Dark Mode</button> <br>
+    <button class="sidebarbutton" onclick="lightmode()">Light Mode</button> <br>
+    <button class="sidebarbutton" onclick="closeshop()">Close Shop</button>
+  </div>
+  <div class="sidebar" id="cheatsbar" style="display:none">
+  <h3>Cheats</h3>
+  <div id="cheatconsole">
+    <input type="text" id="cheatbox" name="cheatbox" placeholder="Nothing yet" spellcheck="false" size="fill">
+  </div>
+  <button class="sidebarbutton" onclick="besthackerOn()">hacks on</button> <br>
+  <button class="sidebarbutton" onclick="besthackerOff()">hacks off</button> <br>
+  <button class="sidebarbutton" onclick="insanehack()">Score +1</button> <br>
+  <button class="sidebarbutton" onclick="scoreReset()">Reset Session Score</button> <br>
+  <button class="sidebarbutton" onclick="AllTimeScoreReset()">Reset All Time Score</button> <br>
+  <button class="sidebarbutton" onclick="closecheats()">Close Cheats</button>
+  </div>
   <div id="container">
     <h3 class="centerme"> All Time Score: </h3>
-    <h1 id="allTimeCounterDisplay"></h1>
+    <h1 id="allTimeCounterDisplay">0</h1>
     <h1 id="title">Guess The Number!</h1>
     <div id="textbox-container">
       <input type="text" id="textbox" name="textbox" placeholder="" spellcheck="false" size="1">
@@ -29,7 +47,7 @@
   </div>
   <script src="script.js"></script>
 
-  
+
 </body>
 
 </html>

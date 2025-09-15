@@ -3,14 +3,14 @@ mainScreen.style.display = "none";
 let instructions = document.getElementById("instructions");
 let allTimeCounterDisplay = document.getElementById("allTimeCounterDisplay");
 let allTimeCounter = localStorage.getItem("alltimecounter");
-
-//let darkmodeColor = rgb(48, 46, 46);
-//let lightmodeColor = rgb(255, 255, 255);
+let cheatsbar = document.getElementById("cheatsbar");
+let shop = document.getElementById("shop");
 
 function startcheck() {
   let localStorageCheck = localStorage.getItem("showinstructions");
   if (localStorageCheck === "false") {
-    instructions.style.display = "none"
+    instructions.style.display = "none";
+    mainScreen.style.display = "block";
   }
   else {
     return;
@@ -57,7 +57,33 @@ function submit() {
     textbox.value = "";
     correct.innerHTML = "The number is bigger";
   }
+  else if (textbox.value == "greg123") {
+    textbox.value = "";
+    correct.innerHTML = "number is greg";
+    cheatsbar.style.display = "block";
+  }
+  else if (textbox.value == "shop") {
+    textbox.value = "";
+    correct.innerHTML = "shop opened";
+    shop.style.display = "block";
+  }
+  else {
+    textbox.value = "";
+    correct.innerHTML = "Invalid";
+  }
 };
+
+function closeshop() {
+  shop.style.display = "none";
+};
+
+function darkmode() {
+  document.body.style.backgroundColor = "rgb(48, 48, 48)";
+}
+
+function lightmode() {
+  document.body.style.backgroundColor = "rgb(255, 255, 255)";
+}
 
 // Console Cheats
 
@@ -98,10 +124,26 @@ function setnum(num) {
 
 function scoreReset() {
   score = 0;
-  scoreDisplay.innerHTML = score;
+  scoreDisplay.innerHTML = "Session Score: " + score;
 };
 
 function AllTimeScoreReset() {
   allTimeCounter = 0;
+  localStorage.setItem("alltimecounter", allTimeCounter);
   allTimeCounterDisplay.innerHTML = allTimeCounter;
 };
+
+function closecheats() {
+  cheatsbar.style.display = "none";
+  correct.innerHTML = "You were correct!"
+};
+
+let cheatbox = document.getElementById("cheatbox");
+cheatbox.addEventListener("input", function() {
+  switch(cheatbox.value) {
+    case "num":
+      alert(number);
+      cheatbox.value = "";
+      break;
+  }
+});
